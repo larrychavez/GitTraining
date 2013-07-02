@@ -17,14 +17,39 @@ Furthermore, Git deals pretty well with having several remote repositories it ca
 Cloning a git repository:
 http://git-scm.com/book/en/Git-Basics-Getting-a-Git-Repository#Cloning-an-Existing-Repository
 
-Get the url for the repository you want to clone from GitHub:
-https://github.com/DellGDC/GitTraining.git
+==========================================================
+
 
 Open Git Shell
 Type the Git command to clone:
 * git clone https://github.com/DellGDC/GitTraining.git
 
-Saving changes to your repository (add and commit:
+==========================================================
+
+Navigating folders with the command line:
+"cd" - means change directory;
+
+* cd folderName
+navigates you into the folder folderName.
+
+* cd ../
+navigates you to the parent folder.
+* cd ../../
+navigates you to the parent folder two levels up
+
+you can combine these commands.... say your in another folder named otherFolder which is on the same level as folderName. To get to folderName in one command:
+* cd ../folderName
+
+To list folders:
+* ls
+
+Now... navigate to the GitTraining folder to start your training.
+
+==========================================================
+
+Saving changes to your repository (git add and git commit):
+http://git-scm.com/book/en/Git-Basics-Recording-Changes-to-the-Repository#Committing-Your-Changes
+
 You must save changes to your local repository instance before pushing to GitHub.
 
 First add the files to git that you want saved.
@@ -32,5 +57,42 @@ First add the files to git that you want saved.
 (Yes, that's a period after "add", which means you want to add everything).
 
 Second, commit the changes to your repository:
-* git commit -a -m "a clear, concise message of what your committing"
-the "-a" meands
+* git commit -a -m "Add a clear, concise message of what your committing inside these quotes."
+
+==========================================================
+
+Pulling changes from GitHub (git pull):
+http://git-scm.com/docs/git-pull
+
+AFTER you commit your changes, git pull command.
+* git pull
+
+==========================================================
+
+Pushing to GitHub: (git push)
+http://git-scm.com/book/en/Git-Basics-Working-with-Remotes#Pushing-to-Your-Remotes
+
+if pushing to the master branch, after committing your changes:
+* git push -u origin master
+
+If pushing to another branch
+* git push -u origin branchName
+
+
+==========================================================
+
+Workflow:
+
+To avoid the most conflicts or issues, you should subscribe to this workflow submitting changes to GitHub
+
+In yor local repository, make sure your in the branch which you need to do your work:
+* git status
+
+To push changes, do these tasks in this specific order.
+
+* git add .
+* git commit -a -m "a great message"
+* git pull
+* git push -u origin branchName
+
+Git automatically attempts to merge changes from the server, but it cannot do this unless you have your changes committed. Nor can it merge your changes on the server. So for the least amount of issues, you mush commit your changes, pull the server changes (which will to an automatic merge), then push your changes.
